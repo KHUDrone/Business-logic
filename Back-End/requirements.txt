@@ -1,0 +1,11 @@
+Flask
+Flask-JWT-extended
+Flask-RESTful
+Flask-SQLAlchemy
+Flask-SocketIO
+tensorflow-cpu
+transformers
+torch
+imutils
+pyzbar
+ultralytics
