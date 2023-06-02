@@ -23,20 +23,18 @@ def connect():
         if ret:
             # cv2.imshow('video', frame)
 
-
             frame = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 80])[1]
             #print(frame.shape)
             frame = frame.tolist()
             #frame = np.array(frame)
 
-            print("hello")
+            #print("hello")
             #print(type(frame))
             sio.emit("camera", {"frame": frame}, namespace='/realtime')
             # videoWriter.write(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
-
+            sio.sleep(0.1)
         if cv2.waitKey(1) == 27:
             break
-
 
     capture.release()
     cv2.destroyAllWindows()
