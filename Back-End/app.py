@@ -3,6 +3,7 @@ from flask_restful import Api
 from flask_socketio import SocketIO
 from resources import create_socketio
 from flask_cors import CORS
+import cv2
 
 host = "0.0.0.0"
 port = 5001
@@ -29,4 +30,4 @@ if __name__ == "__main__":
 
     print("Now we Run...")
     #app.run(host=host,port=port,debug=False)
-    sock.run(app,host=host,port=port,debug=True)
+    sock.run(app,host=host,port=port,debug=False)
