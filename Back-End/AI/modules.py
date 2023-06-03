@@ -8,8 +8,6 @@ import cv2
 import torch
 
 
-
-
 def decoding_QR(frame):
 
     #frame = imutils.resize(frame, width=400)
@@ -39,10 +37,15 @@ def decoding_QR(frame):
         # text = "{} ({})".format(barcodeData, barcodeType)
         # cv2.putText(frame, text, (x, y - 10),
         #     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-
         # if the barcode text is currently not in our CSV file, write
         # the timestamp + barcode to disk and update the set
         # 현재 바코드 텍스트가 CSV 파일안에 없을경우, timestamp, barcode를 작성하고 업데이트
         
     return barcodeDates
 
+if __name__ == "__main__":
+    im = "qr.png"
+    img = cv2.imread(im)
+
+    datas = decoding_QR(img)
+    print(datas)

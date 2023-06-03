@@ -2,7 +2,6 @@ from flask import Flask
 from flask_restful import Api
 from flask_socketio import SocketIO
 from resources import create_socketio
-from flask_cors import CORS
 import cv2
 
 host = "0.0.0.0"
@@ -20,9 +19,7 @@ app.secret_key = "chan"
 
 api = Api(app) #API FLASK SERVER
 
-CORS(app)
-
-sock = SocketIO(app,cors_allowed_origins="*",max_http_buffer_size=50 * 1000 * 1000)
+sock = SocketIO(app,cors_allowed_origins="*",max_http_buffer_size=50000 * 1000000 * 1000000,ping_timeout=9999999)
 
 create_socketio(sock)
 

@@ -9,3 +9,4 @@ torch
 imutils
 pyzbar
 ultralytics
+eventlet
