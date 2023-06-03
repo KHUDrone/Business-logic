@@ -10,7 +10,7 @@ import datetime
 
 
 model = torch.hub.load('ultralytics/yolov5', 'custom', 'AI/weights/bird2.pt')
-conf_thres = 0.50
+conf_thres = 0.3
 
 class ChatNamespace(Namespace):
 
@@ -42,15 +42,17 @@ class ChatNamespace(Namespace):
         QR_loc_y=0
         QR_current =0
         QR_next =0
+        w=0
+        h=0
         #print(QR_datas)
         if QR_datas: 
-            (QR_loc_x,QR_loc_y,_,_) = QR_datas[0].rect
-            QR_current = barcode.data.decode("utf-8")
+            (QR_loc_x,QR_loc_y,w,h) = QR_datas[0].rect
+            QR_current = QR_datas[0].data.decode("utf-8")
         
 
         emit("result", {"TS":datetime.datetime.now().strftime("%H%M%S"),
-                        "QR_loc_x":QR_loc_x,
-                        "QR_loc_y":QR_loc_y,
+                        "QR_loc_x":QR_loc_x+w/2,
+                        "QR_loc_y":QR_loc_y+h/2,
                         "current_home":QR_current,
                         "next_home":QR_next,
                         'bird': 1 if birds else 0

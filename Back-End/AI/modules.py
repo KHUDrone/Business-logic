@@ -44,7 +44,7 @@ def decoding_QR(frame):
     return barcodeDates
 
 if __name__ == "__main__":
-    im = "qr.png"
+    im = "qr2.png"
     img = cv2.imread(im)
 
     datas = decoding_QR(img)
